@@ -1,7 +1,8 @@
 'use client'
 
+import dynamic from 'next/dynamic'
+
 import { useState, useEffect } from 'react'
-import Head from "next/head"
 
 import LineChart from '../components/lineChart'
 import BarChart from '../components/barChart'
@@ -11,78 +12,14 @@ import { ChartSectionContainer, ChartViewContainer, ChartsContainer, Header, Pag
 import Image from 'next/image';
 import Logo from '../images/logo.svg'
 
-import { faker } from '@faker-js/faker';
 import Table from '@/components/table';
 
+import axios from 'axios';
 
 
 export default function Home() {
-  const [jogosPorNumeroMovimentos, setJogosPorNumeroMovimentos] = useState([
-    {
-      idJogo: 1,
-      numeroMovimentos: 20
-    },
-    {
-      idJogo: 2,
-      numeroMovimentos: 15
-    },
-    {
-      idJogo: 3,
-      numeroMovimentos: 18
-    },
-    {
-      idJogo: 4,
-      numeroMovimentos: 22
-    },
-    {
-      idJogo: 5,
-      numeroMovimentos: 17
-    },
-    {
-      idJogo: 6,
-      numeroMovimentos: 19
-    },
-    {
-      idJogo: 7,
-      numeroMovimentos: 16
-    },
-    {
-      idJogo: 8,
-      numeroMovimentos: 21
-    },
-    {
-      idJogo: 9,
-      numeroMovimentos: 14
-    },
-    {
-      idJogo: 10,
-      numeroMovimentos: 23
-    }
-  ]);
-  const [jogadoresPorPais, setJogadoresPorPais] = useState(
-    [
-      {
-        pais: 'Brasil',
-        quantidadeDeJogadores: 10
-      },
-      {
-        pais: 'Estados Unidos',
-        quantidadeDeJogadores: 8
-      },
-      {
-        pais: 'Espanha',
-        quantidadeDeJogadores: 6
-      },
-      {
-        pais: 'Alemanha',
-        quantidadeDeJogadores: 12
-      },
-      {
-        pais: 'França',
-        quantidadeDeJogadores: 7
-      }
-    ]
-  );
+  const [jogosPorNumeroMovimentos, setJogosPorNumeroMovimentos] = useState([]);
+  const [jogadoresPorPais, setJogadoresPorPais] = useState([]);
 
   const [filtroJogadores, setFiltroJogadores] = useState<string[]>([]);
   const [jogadores, setJogadores] = useState<string[]>([]);
@@ -185,22 +122,22 @@ export default function Home() {
   ]);
 
   const dataJogadoresPorPais = {
-    labels: jogadoresPorPais.map((dado) => dado.pais),
+    labels: jogadoresPorPais.map((dado: any) => dado.pais),
     datasets: [
       {
         label: 'Dataset 1',
-        data: jogadoresPorPais.map((dado) => dado.quantidadeDeJogadores),
+        data: jogadoresPorPais.map((dado: any) => dado.quantidadedejogadores),
         borderColor: '#c1a380',
         backgroundColor: '#c1a380',
       },
     ],
   };
   const dataJogosPorNumeroMovimentos = {
-    labels: jogosPorNumeroMovimentos.map((dado) => dado.idJogo),
+    labels: jogosPorNumeroMovimentos.map((dado:any) => dado.idjogo),
     datasets: [
       {
         label: 'Dataset 1',
-        data: jogosPorNumeroMovimentos.map((dado) => dado.numeroMovimentos),
+        data: jogosPorNumeroMovimentos.map((dado:any) => dado.quantidadedemovimentos),
         borderColor: '#c1a380',
         backgroundColor: '#c1a380',
       }
@@ -211,26 +148,33 @@ export default function Home() {
 
   useEffect(() => {
       const getJogosPorNumeroMovimentos = async () => {
-        // const data = await api.get('/insira aqui a rota');
-        // setJogosPorNumeroMovimentos(data.data);
+        const data = await axios.get('/api/jogospornumeromovimentos');
+        console.log(data.data);
+
+        setJogosPorNumeroMovimentos(data.data);
       }
 
       const getJogadoresPorPais = async () => {
-        // const data = await api.get('/insira aqui a rota');
-        // setJogadoresPorPais(data.data);
+        const data = await axios.get('/api/jogadoresporpais');
+        console.log(data.data);
+
+        setJogadoresPorPais(data.data);
       }
 
       const getJogadores = async () => {
-        // const data = await api.get('/insira aqui a rota');
-        // setJogadores(data.data);
+        const data = await axios.get('/api/jogadores');
+        console.log(data.data);
+        setJogadores(data.data);
       }
       const getArbitros = async () => {
-        // const data = await api.get('/insira aqui a rota');
-        // setArbitros(data.data);
+        const data = await axios.get('/api/arbitros');
+        console.log(data.data);
+        setArbitros(data.data);
       }
       const getHoteis = async () => {
-        // const data = await api.get('/insira aqui a rota');
-        // setHoteis(data.data);
+        const data = await axios.get('/api/hoteis');
+        console.log(data.data);
+        setHoteis(data.data);
       }
 
       getJogosPorNumeroMovimentos().catch((err) => console.log(err));
@@ -238,14 +182,18 @@ export default function Home() {
       getJogadores().catch((err) => console.log(err));
       getArbitros().catch((err) => console.log(err));
       getHoteis().catch((err) => console.log(err));
+      
   }, [])
 
   useEffect(() => {
     const getProgramacao = async (filtros: {}) => {
-      // const data = await api.get('/insira aqui a rota', filtros);
-      // setProgramacao(data.data);
+      const data = await axios.get('/api/programacao');
+        console.log(data.data);
+        setProgramacao(data.data);
     }
     console.log(filterData)
+
+    getProgramacao(filterData).catch((err) => console.log(err));
   }, [filterData])
 
 
@@ -258,6 +206,8 @@ export default function Home() {
         hotel: filtroHotel
       }
     )
+
+    console.log(filterData)
   }
 
   return (
