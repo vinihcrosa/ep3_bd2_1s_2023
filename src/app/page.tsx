@@ -3,6 +3,8 @@
 import dynamic from 'next/dynamic'
 
 import { useState, useEffect } from 'react'
+import Head from "next/head"
+import axios from 'axios'
 
 import LineChart from '../components/lineChart'
 import BarChart from '../components/barChart'
@@ -14,12 +16,43 @@ import Logo from '../images/logo.svg'
 
 import Table from '@/components/table';
 
-import axios from 'axios';
+interface IJogosPorNumeroMovimentos {
+  idJogo: number;
+  numeroMovimentos: number;
+}
+console.log(process.env.API_URL)
 
+const api = axios.create({
+  baseURL: process.env.API_URL
+})
 
-export default function Home() {
-  const [jogosPorNumeroMovimentos, setJogosPorNumeroMovimentos] = useState([]);
-  const [jogadoresPorPais, setJogadoresPorPais] = useState([]);
+export default async function Home() {
+  const [jogosPorNumeroMovimentos, setJogosPorNumeroMovimentos] = useState<IJogosPorNumeroMovimentos[]>([]);
+
+  const [jogadoresPorPais, setJogadoresPorPais] = useState(
+    [
+      {
+        pais: 'Brasil',
+        quantidadeDeJogadores: 10
+      },
+      {
+        pais: 'Estados Unidos',
+        quantidadeDeJogadores: 8
+      },
+      {
+        pais: 'Espanha',
+        quantidadeDeJogadores: 6
+      },
+      {
+        pais: 'Alemanha',
+        quantidadeDeJogadores: 12
+      },
+      {
+        pais: 'França',
+        quantidadeDeJogadores: 7
+      }
+    ]
+  );
 
   const [filtroJogadores, setFiltroJogadores] = useState<string[]>([]);
   const [jogadores, setJogadores] = useState<string[]>([]);
@@ -148,33 +181,31 @@ export default function Home() {
 
   useEffect(() => {
       const getJogosPorNumeroMovimentos = async () => {
-        const data = await axios.get('/api/jogospornumeromovimentos');
-        console.log(data.data);
-
-        setJogosPorNumeroMovimentos(data.data);
+        const {data} = await api.get('/api/jogosPorMovimentos');
+        console.log(data);
+        setJogosPorNumeroMovimentos(data);
       }
 
       const getJogadoresPorPais = async () => {
-        const data = await axios.get('/api/jogadoresporpais');
-        console.log(data.data);
-
-        setJogadoresPorPais(data.data);
+        const {data} = await api.get('/api/jogadoresPorPais');
+        console.log(data)
+        setJogadoresPorPais(data);
       }
 
       const getJogadores = async () => {
-        const data = await axios.get('/api/jogadores');
-        console.log(data.data);
-        setJogadores(data.data);
+        const {data} = await api.get('/api/selectParticipantes/jogador');
+        console.log(data);
+        setJogadores(data);
       }
       const getArbitros = async () => {
-        const data = await axios.get('/api/arbitros');
-        console.log(data.data);
-        setArbitros(data.data);
+        const {data} = await api.get('/api/selectParticipantes/juiz');
+        console.log(data);
+        setArbitros(data);
       }
       const getHoteis = async () => {
-        const data = await axios.get('/api/hoteis');
-        console.log(data.data);
-        setHoteis(data.data);
+        const {data} = await api.get('/api/hoteis');
+        console.log(data);
+        setHoteis(data);
       }
 
       getJogosPorNumeroMovimentos().catch((err) => console.log(err));
@@ -187,10 +218,12 @@ export default function Home() {
 
   useEffect(() => {
     const getProgramacao = async (filtros: {}) => {
-      const data = await axios.get('/api/programacao');
-        console.log(data.data);
-        setProgramacao(data.data);
+      const data = await api.get('/api/jogo', {
+        params: filtros
+      });
+      setProgramacao(data.data);
     }
+    getProgramacao(filterData)
     console.log(filterData)
 
     getProgramacao(filterData).catch((err) => console.log(err));

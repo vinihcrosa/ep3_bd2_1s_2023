@@ -1,4 +1,4 @@
-import conn from "@/lib/db"
+import { conn } from "../../../lib/db"
 import { NextResponse } from "next/server"
 
 export async function GET(request: Request) {

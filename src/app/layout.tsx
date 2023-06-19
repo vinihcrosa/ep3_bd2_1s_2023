@@ -5,10 +5,10 @@ import GlobalStyle from './globalStyles';
 
 const inter = Inter({ subsets: ['latin'] })
 
-export const metadata = {
-  title: 'MyChessChampionship',
-  description: 'Este é seu dashboard de campeonatos de xadrez',
-}
+// export const metadata = {
+//   title: 'MyChessChampionship',
+//   description: 'Este é seu dashboard de campeonatos de xadrez',
+// }
 
 export default function RootLayout({
   children,

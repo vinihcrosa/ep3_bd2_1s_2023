@@ -1,0 +1,10 @@
+INSERT INTO jogo (jogadorBrancas, jogadorPretas, jornada, idArbitro) VALUES (1, 2, '2023-06-01', 17);
+INSERT INTO jogo (jogadorBrancas, jogadorPretas, jornada, idArbitro) VALUES (3, 4, '2023-06-01', 18);
+INSERT INTO jogo (jogadorBrancas, jogadorPretas, jornada, idArbitro) VALUES (5, 6, '2023-06-01', 19);
+INSERT INTO jogo (jogadorBrancas, jogadorPretas, jornada, idArbitro) VALUES (7, 8, '2023-08-14', 20);
+INSERT INTO jogo (jogadorBrancas, jogadorPretas, jornada, idArbitro) VALUES (9, 10, '2023-09-23', 21);
+INSERT INTO jogo (jogadorBrancas, jogadorPretas, jornada, idArbitro) VALUES (11, 12, '2023-11-05', 22);
+INSERT INTO jogo (jogadorBrancas, jogadorPretas, jornada, idArbitro) VALUES (13, 14, '2023-12-12', 23);
+INSERT INTO jogo (jogadorBrancas, jogadorPretas, jornada, idArbitro) VALUES (15, 16, '2023-12-12', 24);
+INSERT INTO jogo (jogadorBrancas, jogadorPretas, jornada, idArbitro) VALUES (1, 5, '2023-07-19', 17);
+INSERT INTO jogo (jogadorBrancas, jogadorPretas, jornada, idArbitro) VALUES (10, 2, '2023-10-28', 18);

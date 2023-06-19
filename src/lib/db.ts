@@ -1,15 +1,15 @@
-import { Pool } from "pg";
+import { Pool } from 'pg';
 
 let conn: any;
 
-if (!conn) {
-        conn = new Pool({
-        user: 'username',
-        password: 'password',
-        host: '127.0.0.1',
-        port: 5432,
-        database: 'DB2',
-    });
+if(!conn){
+  conn = new Pool({
+    user: process.env.DB_USER,
+    password: process.env.DB_PASS,
+    host: process.env.DB_HOST,
+    port: Number(process.env.DB_PORT),
+    database: process.env.DB_NAME,
+  })
 }
 
-export default conn;
+export { conn };
