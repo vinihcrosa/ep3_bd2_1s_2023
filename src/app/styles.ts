@@ -88,3 +88,24 @@ export const Botao = styled.button`
         color: #fff;
     }
 `
+
+export const BotaoLimpar = styled.button`
+    decoration: none;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    height: 56px;
+    min-width: 100px;
+    border: none;
+    border-radius: 10px;
+    background: #fff;
+    color: #222;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+        color: #c1a380;
+    }
+`

@@ -5,9 +5,7 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import ListItemText from '@mui/material/ListItemText';
 import Select from '@mui/material/Select';
-import Checkbox from '@mui/material/Checkbox';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -20,35 +18,31 @@ const MenuProps = {
   },
 };
 
-export default function MultiSelect({ label, data, value, setter }:any) {
+export default function SelectExport({ label, data, value, setter }:any) {
 
   const handleChange = (event: any) => {
     const {
       target: { value },
     } = event;
     setter(
-      typeof value === 'string' ? value.split(',') : value,
+      value as string,
     );
   };
 
   return (
     <div>
-      <FormControl sx={{ width: '200px' }}>
-        <InputLabel id="demo-multiple-checkbox-label">{label}</InputLabel>
+      <FormControl sx={{ width: '200px', height: '65px !important' } } size="medium">
+        <InputLabel id="demo-simple-select-label">{label}</InputLabel>
         <Select
-          labelId="demo-multiple-checkbox-label"
-          id="demo-multiple-checkbox"
-          multiple
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
           value={value}
+          label={label}
           onChange={handleChange}
-          input={<OutlinedInput label={label} />}
-          renderValue={(selected) => selected.join(', ')}
-          MenuProps={MenuProps}
         >
           {data.map((dataValue: any) => (
             <MenuItem key={dataValue} value={dataValue}>
-              <Checkbox checked={value.indexOf(dataValue) > -1} />
-              <ListItemText primary={dataValue} />
+              {dataValue}
             </MenuItem>
           ))}
         </Select>

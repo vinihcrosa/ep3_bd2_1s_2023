@@ -6,8 +6,8 @@ import { useState, useEffect } from 'react'
 
 import LineChart from '../components/lineChart'
 import BarChart from '../components/barChart'
-import MultiSelect from '../components/multiSelect'
-import { ChartSectionContainer, ChartViewContainer, ChartsContainer, Header, PageContainer, Title, TableContainer, FilterContainer, Botao } from './styles';
+import Select from '../components/select'
+import { ChartSectionContainer, ChartViewContainer, ChartsContainer, Header, PageContainer, Title, TableContainer, FilterContainer, Botao, BotaoLimpar } from './styles';
 
 import Image from 'next/image';
 import Logo from '../images/logo.svg'
@@ -21,11 +21,11 @@ export default function Home() {
   const [jogosPorNumeroMovimentos, setJogosPorNumeroMovimentos] = useState([]);
   const [jogadoresPorPais, setJogadoresPorPais] = useState([]);
 
-  const [filtroJogadores, setFiltroJogadores] = useState<string[]>([]);
+  const [filtroJogadores, setFiltroJogadores] = useState<string>('');
   const [jogadores, setJogadores] = useState<string[]>([]);
-  const [filtroArbitro, setFiltroArbitro] = useState<string[]>([]);
+  const [filtroArbitro, setFiltroArbitro] = useState<string>('');
   const [arbitros, setArbitros] = useState<string[]>([]);
-  const [filtroHotel, setFiltroHotel] = useState<string[]>([]);
+  const [filtroHotel, setFiltroHotel] = useState<string>('');
   const [hoteis, setHoteis] = useState<string[]>([]);
 
   const [programacao, setProgramacao] = useState([]);
@@ -54,10 +54,10 @@ export default function Home() {
   }
 
   const [filterData, setFilterData] = useState({
-    jogadorbrancas: [],
-    jogadorpretas: [],
-    arbitro: [],
-    hotel: []
+    jogadorbrancas: '',
+    jogadorpretas: '',
+    arbitro: '',
+    hotel: ''
   });
 
   useEffect(() => {
@@ -130,6 +130,24 @@ export default function Home() {
     console.log(filterData)
   }
 
+  function clearFilters() {
+    setFilterData(
+      {
+        // @ts-ignore
+        jogadorbrancas: '',
+        // @ts-ignore
+        jogadorpretas: '',
+        // @ts-ignore
+        arbitro: '',
+        // @ts-ignore
+        hotel: ''
+      }
+    )
+    setFiltroArbitro('');
+    setFiltroHotel('');
+    setFiltroJogadores('');
+  }
+
   return (
     <PageContainer>
       <Header>
@@ -140,10 +158,11 @@ export default function Home() {
         <Title>Programação</Title>
         <FilterContainer>
           <p><strong>Filtros: </strong></p>
-          <MultiSelect label={'Jogador'} data={jogadores} setter={setFiltroJogadores} value={filtroJogadores}/>
-          <MultiSelect label={'Árbitro'} data={arbitros} setter={setFiltroArbitro} value={filtroArbitro}/>
-          <MultiSelect label={'Hotel'} data={hoteis} setter={setFiltroHotel} value={filtroHotel}/>
+          <Select label={'Jogador'} data={jogadores} setter={setFiltroJogadores} value={filtroJogadores}/>
+          <Select label={'Árbitro'} data={arbitros} setter={setFiltroArbitro} value={filtroArbitro}/>
+          <Select label={'Hotel'} data={hoteis} setter={setFiltroHotel} value={filtroHotel}/>
           <Botao onClick={filter}>Filtrar</Botao>
+          <BotaoLimpar onClick={clearFilters} className='limpar'>Limpar filtros</BotaoLimpar>
         </FilterContainer>
         <Table rows={programacao}/>
       </TableContainer>

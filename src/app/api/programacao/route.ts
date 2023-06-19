@@ -5,10 +5,10 @@ import { NextApiRequest } from "next";
 export async function GET(request: NextApiRequest,) {
     const searchParams = new URLSearchParams(request.url?.split('?')[1])
 
-    const jogadorBrancas = searchParams.get('jogadorbrancas[]')
-    const jogadorPretas = searchParams.get('jogadorpretas[]')
-    const arbitro = searchParams.get('arbitro[]')
-    const hotel = searchParams.get('hotel[]')
+    const jogadorBrancas = searchParams.get('jogadorbrancas')
+    const jogadorPretas = searchParams.get('jogadorpretas')
+    const arbitro = searchParams.get('arbitro')
+    const hotel = searchParams.get('hotel')
 
     console.log(jogadorBrancas, jogadorPretas, arbitro, hotel)
 
