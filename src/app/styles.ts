@@ -46,6 +46,7 @@ export const PageContainer = styled.main`
     flex-direction: column;
     align-items: center;
     overflow: auto;
+    margin-bottom: 80px;
 `
 
 export const TableContainer = styled.div`

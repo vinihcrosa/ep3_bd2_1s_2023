@@ -1,5 +1,7 @@
 'use client'
 
+import dynamic from 'next/dynamic'
+
 import { useState, useEffect } from 'react'
 import Head from "next/head"
 import axios from 'axios'
@@ -12,7 +14,6 @@ import { ChartSectionContainer, ChartViewContainer, ChartsContainer, Header, Pag
 import Image from 'next/image';
 import Logo from '../images/logo.svg'
 
-import { faker } from '@faker-js/faker';
 import Table from '@/components/table';
 
 interface IJogosPorNumeroMovimentos {
@@ -154,22 +155,22 @@ export default async function Home() {
   ]);
 
   const dataJogadoresPorPais = {
-    labels: jogadoresPorPais.map((dado) => dado.pais),
+    labels: jogadoresPorPais.map((dado: any) => dado.pais),
     datasets: [
       {
         label: 'Dataset 1',
-        data: jogadoresPorPais.map((dado) => dado.quantidadeDeJogadores),
+        data: jogadoresPorPais.map((dado: any) => dado.quantidadedejogadores),
         borderColor: '#c1a380',
         backgroundColor: '#c1a380',
       },
     ],
   };
   const dataJogosPorNumeroMovimentos = {
-    labels: jogosPorNumeroMovimentos.map((dado) => dado.idJogo),
+    labels: jogosPorNumeroMovimentos.map((dado:any) => dado.idjogo),
     datasets: [
       {
         label: 'Dataset 1',
-        data: jogosPorNumeroMovimentos.map((dado) => dado.numeroMovimentos),
+        data: jogosPorNumeroMovimentos.map((dado:any) => dado.quantidadedemovimentos),
         borderColor: '#c1a380',
         backgroundColor: '#c1a380',
       }
@@ -212,6 +213,7 @@ export default async function Home() {
       getJogadores().catch((err) => console.log(err));
       getArbitros().catch((err) => console.log(err));
       getHoteis().catch((err) => console.log(err));
+      
   }, [])
 
   useEffect(() => {
@@ -223,6 +225,8 @@ export default async function Home() {
     }
     getProgramacao(filterData)
     console.log(filterData)
+
+    getProgramacao(filterData).catch((err) => console.log(err));
   }, [filterData])
 
 
@@ -235,6 +239,8 @@ export default async function Home() {
         hotel: filtroHotel
       }
     )
+
+    console.log(filterData)
   }
 
   return (

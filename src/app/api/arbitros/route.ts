@@ -1,9 +1,9 @@
-import { conn } from "../../../lib/db"
+import conn from "@/lib/db"
 import { NextResponse } from "next/server"
 
 export async function GET(request: Request) {
     try {
-        const query = "SELECT nome FROM hotel"
+        const query = "SELECT nome FROM participantes WHERE participandocomo = 'juiz'"
         const result = await conn.query(query)
         console.log(result.rows)
 
