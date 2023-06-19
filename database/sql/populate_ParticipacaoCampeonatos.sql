@@ -1,0 +1,10 @@
+INSERT INTO ParticipacaoCampeonatos (participouComo, nomeCampeonato, idParticipante) VALUES ('jogador', 'World Chess Championship', 2);
+INSERT INTO ParticipacaoCampeonatos (participouComo, nomeCampeonato, idParticipante) VALUES ('juiz', 'National Scrabble Championship', 3);
+INSERT INTO ParticipacaoCampeonatos (participouComo, nomeCampeonato, idParticipante) VALUES ('jogador', 'World Poker Tour', 2);
+INSERT INTO ParticipacaoCampeonatos (participouComo, nomeCampeonato, idParticipante) VALUES ('juiz', 'International Table Tennis Championship', 5);
+INSERT INTO ParticipacaoCampeonatos (participouComo, nomeCampeonato, idParticipante) VALUES ('jogador', 'European Go Championship', 6);
+INSERT INTO ParticipacaoCampeonatos (participouComo, nomeCampeonato, idParticipante) VALUES ('juiz', 'National Bridge Championship', 3);
+INSERT INTO ParticipacaoCampeonatos (participouComo, nomeCampeonato, idParticipante) VALUES ('jogador', 'World Mahjong Championship', 8);
+INSERT INTO ParticipacaoCampeonatos (participouComo, nomeCampeonato, idParticipante) VALUES ('juiz', 'International Checkers Championship', 9);
+INSERT INTO ParticipacaoCampeonatos (participouComo, nomeCampeonato, idParticipante) VALUES ('jogador', 'Asian Chess Championship', 10);
+INSERT INTO ParticipacaoCampeonatos (participouComo, nomeCampeonato, idParticipante) VALUES ('juiz', 'World Scrabble Championship', 11);

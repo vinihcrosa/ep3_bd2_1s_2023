@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  database:
+    image: 'postgres:latest'
+    ports:
+      - 5432:5432
+    restart: always
+    logging:
+      options:
+        max-size: 10m
+        max-file: "3"
+    environment:
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: DB2
+    volumes:
+      - ./database/sql/createTables.sql:/docker-entrypoint-initdb.d/00_createTables.sql
+      - ./database/sql/populate_pais.sql:/docker-entrypoint-initdb.d/01_pais.sql
+      - ./database/sql/populate_participante.sql:/docker-entrypoint-initdb.d/02_participante.sql
+      - ./database/sql/populate_hotel.sql:/docker-entrypoint-initdb.d/03_hotel.sql
+      - ./database/sql/populate_ParticipacaoCampeonatos.sql:/docker-entrypoint-initdb.d/04_ParticipacaoCampeonatos.sql
+      - ./database/sql/populate_jogo.sql:/docker-entrypoint-initdb.d/05_jogo.sql
+      - ./database/sql/populate_movimento.sql:/docker-entrypoint-initdb.d/06_movimento.sql
+      - ./database/sql/populate_acomodacoesParticipanteHotel.sql:/docker-entrypoint-initdb.d/07_acomodacoesParticipanteHotel.sql
+      - ./database/sql/populate_salao.sql:/docker-entrypoint-initdb.d/08_salao.sql
+      - ./database/sql/populate_celebracaoJogoSalao.sql:/docker-entrypoint-initdb.d/09_celebracaoJogoSalao.sql

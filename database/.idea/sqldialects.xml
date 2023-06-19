@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$APPLICATION_CONFIG_DIR$/consoles/db/fc3b634d-48cb-4eca-9fc1-5bc84eab810f/console.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/sql/createTables.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/sql/populate_pais.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/sql/populate_hotel.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/sql/populate_ParticipacaoCampeonatos.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/sql/populate_jogo.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/sql/populate_movimento.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/sql/populate_acomodacoesParticipanteHotel.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/sql/populate_salao.sql" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/sql/populate_celebracaoJogoSalao.sql" dialect="GenericSQL" />
+  </component>
+</project>

@@ -1,0 +1,10 @@
+INSERT INTO celebracaoJogoSalao (idJogo, idHotel, nroSalao, horario, entradasVendidas) VALUES (1, 1, 1, '12:00', 40);
+INSERT INTO celebracaoJogoSalao (idJogo, idHotel, nroSalao, horario, entradasVendidas) VALUES (2, 1, 2, '10:00', 29);
+INSERT INTO celebracaoJogoSalao (idJogo, idHotel, nroSalao, horario, entradasVendidas) VALUES (3, 2, 1, '14:00', 41);
+INSERT INTO celebracaoJogoSalao (idJogo, idHotel, nroSalao, horario, entradasVendidas) VALUES (4, 2, 2, '22:00', 36);
+INSERT INTO celebracaoJogoSalao (idJogo, idHotel, nroSalao, horario, entradasVendidas) VALUES (9, 3, 1, '16:00', 30);
+INSERT INTO celebracaoJogoSalao (idJogo, idHotel, nroSalao, horario, entradasVendidas) VALUES (6, 3, 2, '14:00', 27);
+INSERT INTO celebracaoJogoSalao (idJogo, idHotel, nroSalao, horario, entradasVendidas) VALUES (7, 4, 1, '18:00', 40);
+INSERT INTO celebracaoJogoSalao (idJogo, idHotel, nroSalao, horario, entradasVendidas) VALUES (8, 9, 2, '19:00', 39);
+INSERT INTO celebracaoJogoSalao (idJogo, idHotel, nroSalao, horario, entradasVendidas) VALUES (9, 9, 1, '21:00', 40);
+INSERT INTO celebracaoJogoSalao (idJogo, idHotel, nroSalao, horario, entradasVendidas) VALUES (10, 6, 2, '21:00', 41);
