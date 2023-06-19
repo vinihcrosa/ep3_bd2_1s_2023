@@ -28,98 +28,7 @@ export default function Home() {
   const [filtroHotel, setFiltroHotel] = useState<string[]>([]);
   const [hoteis, setHoteis] = useState<string[]>([]);
 
-  const [programacao, setProgramacao] = useState([
-    {
-      id: 1,
-      jogadorbrancas: 'Vitor Nunes',
-      jogadorpretas: 'Vinicius Rosa',
-      arbitro: 'Cleber Rodrigues',
-      hotel: 'Hamilton Hotel',
-      lugar: 'Av. Dr Assis Ribeiro, 243',
-      hora: '11:20'
-    },
-    {
-      id: 2,
-      jogadorbrancas: 'Ana Silva',
-      jogadorpretas: 'Carlos Mendes',
-      arbitro: 'Luisa Oliveira',
-      hotel: 'Grand Plaza Hotel',
-      lugar: 'Rua dos Esportes, 78',
-      hora: '15:40'
-    },
-    {
-      id: 3,
-      jogadorbrancas: 'Rafaela Costa',
-      jogadorpretas: 'Juliana Santos',
-      arbitro: 'Pedro Rodrigues',
-      hotel: 'Hotel Imperial',
-      lugar: 'Avenida Central, 456',
-      hora: '09:10'
-    },
-    {
-      id: 4,
-      jogadorbrancas: 'Felipe Ribeiro',
-      jogadorpretas: 'Gabriel Souza',
-      arbitro: 'Fernanda Lima',
-      hotel: 'Royal Palace Hotel',
-      lugar: 'Rua das Torres, 32',
-      hora: '14:30'
-    },
-    {
-      id: 5,
-      jogadorbrancas: 'Mariana Almeida',
-      jogadorpretas: 'Rodrigo Castro',
-      arbitro: 'Patricia Oliveira',
-      hotel: 'Golden Tower Hotel',
-      lugar: 'Avenida dos Campeões, 567',
-      hora: '17:50'
-    },
-    {
-      id: 6,
-      jogadorbrancas: 'Lucas Oliveira',
-      jogadorpretas: 'Carolina Fernandes',
-      arbitro: 'Bruno Santos',
-      hotel: 'Paradise Resort',
-      lugar: 'Praia das Estrelas, 123',
-      hora: '10:00'
-    },
-    {
-      id: 7,
-      jogadorbrancas: 'Luis Santos',
-      jogadorpretas: 'Patricia Costa',
-      arbitro: 'Fernando Silva',
-      hotel: 'Sunset Beach Hotel',
-      lugar: 'Avenida Beira Mar, 789',
-      hora: '13:20'
-    },
-    {
-      id: 8,
-      jogadorbrancas: 'Isabela Rodrigues',
-      jogadorpretas: 'Pedro Almeida',
-      arbitro: 'Camila Oliveira',
-      hotel: 'Palm Tree Resort',
-      lugar: 'Avenida das Palmeiras, 101',
-      hora: '16:40'
-    },
-    {
-      id: 9,
-      jogadorbrancas: 'Gustavo Fernandes',
-      jogadorpretas: 'Ana Costa',
-      arbitro: 'Mariana Santos',
-      hotel: 'Paradise Resort',
-      lugar: 'Praia das Estrelas, 123',
-      hora: '09:00'
-    },
-    {
-      id: 10,
-      jogadorbrancas: 'Julio Mendes',
-      jogadorpretas: 'Rafaela Silva',
-      arbitro: 'Vinicius Costa',
-      hotel: 'Royal Palace Hotel',
-      lugar: 'Rua das Torres, 32',
-      hora: '12:30'
-    },
-  ]);
+  const [programacao, setProgramacao] = useState([]);
 
   const dataJogadoresPorPais = {
     labels: jogadoresPorPais.map((dado: any) => dado.pais),
@@ -144,7 +53,12 @@ export default function Home() {
     ]
   }
 
-  const [filterData, setFilterData] = useState({});
+  const [filterData, setFilterData] = useState({
+    jogadorbrancas: [],
+    jogadorpretas: [],
+    arbitro: [],
+    hotel: []
+  });
 
   useEffect(() => {
       const getJogosPorNumeroMovimentos = async () => {
@@ -187,10 +101,12 @@ export default function Home() {
 
   useEffect(() => {
     const getProgramacao = async (filtros: {}) => {
-      const data = await axios.get('/api/programacao');
-        console.log(data.data);
-        setProgramacao(data.data);
+      const data = await axios.get('/api/programacao', {
+        params: filtros
+      });
+      setProgramacao(data.data);
     }
+    getProgramacao(filterData)
     console.log(filterData)
 
     getProgramacao(filterData).catch((err) => console.log(err));
@@ -200,9 +116,13 @@ export default function Home() {
   function filter() {
     setFilterData(
       {
+        // @ts-ignore
         jogadorbrancas: filtroJogadores,
+        // @ts-ignore
         jogadorpretas: filtroJogadores,
+        // @ts-ignore
         arbitro: filtroArbitro,
+        // @ts-ignore
         hotel: filtroHotel
       }
     )

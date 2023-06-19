@@ -10,7 +10,6 @@ export async function GET(request: Request) {
             GROUP BY p.nome
         `
         const result = await conn.query(query)
-        console.log(result.rows)
         
         return NextResponse.json(result.rows)
     } catch (error) {
