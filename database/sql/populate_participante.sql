@@ -1,0 +1,43 @@
+insert into participantes (nome, telefoneDeContato, endereco, participandoComo, idPais) values ('Bob Fisher', '815-705-4940', '76 Arrowood Court', 'jogador', 4);
+insert into participantes (nome, telefoneDeContato, endereco, participandoComo, idPais) values ('Garry Kasparov', '742-709-0143', '3 Mitchell Center', 'jogador', 3);
+insert into participantes (nome, telefoneDeContato, endereco, participandoComo, idPais) values ('Donelle Arkwright', '723-211-2582', '6 Londonderry Point', 'jogador', 2);
+insert into participantes (nome, telefoneDeContato, endereco, participandoComo, idPais) values ('Cynthie Dollin', '960-706-7642', '92 Mayfield Parkway', 'jogador', 3);
+insert into participantes (nome, telefoneDeContato, endereco, participandoComo, idPais) values ('Olwen Nerval', '546-999-5013', '23 Anderson Center', 'jogador', 4);
+insert into participantes (nome, telefoneDeContato, endereco, participandoComo, idPais) values ('Standford Buckby', '218-279-0477', '16 Monument Center', 'jogador', 4);
+insert into participantes (nome, telefoneDeContato, endereco, participandoComo, idPais) values ('Elston Bosomworth', '651-495-3330', '716 Towne Hill', 'jogador', 2);
+insert into participantes (nome, telefoneDeContato, endereco, participandoComo, idPais) values ('Shaw Gregoletti', '978-919-9249', '1658 Sommers Court', 'jogador', 5);
+insert into participantes (nome, telefoneDeContato, endereco, participandoComo, idPais) values ('Dania Gorwood', '945-691-2316', '17 David Trail', 'jogador', 1);
+insert into participantes (nome, telefoneDeContato, endereco, participandoComo, idPais) values ('Janet Brandom', '767-755-4671', '98 Arapahoe Alley', 'jogador', 4);
+insert into participantes (nome, telefoneDeContato, endereco, participandoComo, idPais) values ('Constantino McTerlagh', '256-568-7707', '7 Forest Run Place', 'jogador', 4);
+insert into participantes (nome, telefoneDeContato, endereco, participandoComo, idPais) values ('Raine Mingauld', '114-546-4829', '20532 Susan Drive', 'jogador', 4);
+insert into participantes (nome, telefoneDeContato, endereco, participandoComo, idPais) values ('Felic Date', '167-647-8989', '22 Dennis Hill', 'jogador', 3);
+insert into participantes (nome, telefoneDeContato, endereco, participandoComo, idPais) values ('De witt Catley', '525-755-7948', '41033 Jenifer Court', 'jogador', 2);
+insert into participantes (nome, telefoneDeContato, endereco, participandoComo, idPais) values ('Lynnette Fiddler', '251-408-8019', '23 Washington Way', 'jogador', 3);
+insert into participantes (nome, telefoneDeContato, endereco, participandoComo, idPais) values ('Gerrie Cronkshaw', '176-555-7203', '93 Fordem Park', 'jogador', 3);
+
+
+insert into participantes (nome, telefoneDeContato, endereco, participandoComo, idPais) values ('Boris Sparski', '995-513-9783', '529 John Wall Street', 'juiz', 4);
+insert into participantes (nome, telefoneDeContato, endereco, participandoComo, idPais) values ('Spence Claw', '596-414-8405', '97589 Main Drive', 'juiz', 4);
+insert into participantes (nome, telefoneDeContato, endereco, participandoComo, idPais) values ('Giff Brussels', '265-430-3422', '9 Pine View Court', 'juiz', 4);
+insert into participantes (nome, telefoneDeContato, endereco, participandoComo, idPais) values ('Berrie McFee', '876-346-8118', '4580 Village Green Alley', 'juiz', 4);
+insert into participantes (nome, telefoneDeContato, endereco, participandoComo, idPais) values ('Hansiain Cestard', '985-281-2756', '00 Eggendart Circle', 'juiz', 4);
+insert into participantes (nome, telefoneDeContato, endereco, participandoComo, idPais) values ('Melina Rawlins', '674-236-6915', '85 1st Street', 'juiz', 4);
+insert into participantes (nome, telefoneDeContato, endereco, participandoComo, idPais) values ('Elyssa De Ambrosi', '941-648-0089', '36012 Lakewood Gardens Avenue', 'juiz', 4);
+insert into participantes (nome, telefoneDeContato, endereco, participandoComo, idPais) values ('Renard Simpole', '933-137-2479', '17 Meadow Valley Plaza', 'juiz', 4);
+
+SELECT CRIAR_JOGADOR_PELO_NOME('Bob Fisher', 1);
+SELECT CRIAR_JOGADOR_PELO_NOME('Garry Kasparov', 2);
+SELECT CRIAR_JOGADOR_PELO_NOME('Donelle Arkwright', 3);
+SELECT CRIAR_JOGADOR_PELO_NOME('Cynthie Dollin', 4);
+SELECT CRIAR_JOGADOR_PELO_NOME('Olwen Nerval', 5);
+SELECT CRIAR_JOGADOR_PELO_NOME('Standford Buckby', 6);
+SELECT CRIAR_JOGADOR_PELO_NOME('Elston Bosomworth', 7);
+SELECT CRIAR_JOGADOR_PELO_NOME('Shaw Gregoletti', 8);
+SELECT CRIAR_JOGADOR_PELO_NOME('Dania Gorwood', 1);
+SELECT CRIAR_JOGADOR_PELO_NOME('Janet Brandom', 2);
+SELECT CRIAR_JOGADOR_PELO_NOME('Constantino McTerlagh', 3);
+SELECT CRIAR_JOGADOR_PELO_NOME('Raine Mingauld', 4);
+SELECT CRIAR_JOGADOR_PELO_NOME('Felic Date', 5);
+SELECT CRIAR_JOGADOR_PELO_NOME('De witt Catley', 6);
+SELECT CRIAR_JOGADOR_PELO_NOME('Lynnette Fiddler', 7);
+SELECT CRIAR_JOGADOR_PELO_NOME('Gerrie Cronkshaw', 8);
